@@ -1,3 +1,24 @@
-[submodule "plugin/vim-coffee-script"]
-	path = plugin/vim-coffee-script
+[submodule "vimfiles/bundle/vim-coffee-script"]
+	path = vimfiles/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script
+[submodule "vimfiles/bundle/vim-javascript"]
+	path = vimfiles/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "vimfiles/bundle/syntastic"]
+	path = vimfiles/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic/
+[submodule "vimfiles/bundle/supertab"]
+	path = vimfiles/bundle/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "vimfiles/bundle/vim-fugitive"]
+	path = vimfiles/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vimfiles/bundle/JSON.vim"]
+	path = vimfiles/bundle/JSON.vim
+	url = https://github.com/vim-scripts/JSON.vim
+[submodule "vimfiles/bundle/taglist.vim"]
+	path = vimfiles/bundle/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim
+[submodule "vimfiles/bundle/Gundo"]
+	path = vimfiles/bundle/Gundo
+	url = https://github.com/vim-scripts/Gundo

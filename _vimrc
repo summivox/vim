@@ -6,4 +6,5 @@ behave xterm
 set nobackup
 set dir=$VIM\swap
 
-call pathogen#infect('plugin')
+filetype plugin indent on
+call pathogen#infect('../plugin')
