@@ -19,6 +19,8 @@ noremap <C-F9> :w <CR> :make <CR> :cw <CR>
 
 " Gundo
 noremap <F5> :GundoToggle <CR>
+" Taglist
+nnoremap <silent> <F6> :TlistToggle<CR>
 
 " coffeescript
 function My_coffee()
