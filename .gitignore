@@ -1,0 +1,4 @@
+vim[0-9]*/
+swap/
+backup/
+.netrwhist
