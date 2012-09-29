@@ -22,3 +22,6 @@
 [submodule "vimfiles/bundle/Gundo"]
 	path = vimfiles/bundle/Gundo
 	url = https://github.com/vim-scripts/Gundo
+[submodule "vimfiles/bundle/jade.vim"]
+	path = vimfiles/bundle/jade.vim
+	url = https://github.com/vim-scripts/jade.vim
