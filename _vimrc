@@ -7,4 +7,4 @@ set nobackup
 set dir=$VIM\swap
 
 filetype plugin indent on
-call pathogen#infect('../plugin')
+call pathogen#infect()
