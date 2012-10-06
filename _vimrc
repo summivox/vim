@@ -3,13 +3,16 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave xterm
 
-" language & font
+" encoding, UI language
 set enc=utf8
 set langmenu=en_US.utf8
 let $LANG = 'en_US.utf8'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+" look 'n feel
 set guifont=Consolas:h10
+color wombat
 
 " backup/swap dir
 set nobackup
@@ -19,8 +22,8 @@ set dir=$VIM\swap
 filetype plugin indent on
 call pathogen#infect()
 
-" default settings
-set sw=4 et nu
+" default indentation
+set ai sw=4 sts=4 et nu fdc=1
 
 " make mapping
 noremap <C-F9> :w <CR> :make <CR> :cw <CR>
@@ -28,7 +31,7 @@ noremap <C-F9> :w <CR> :make <CR> :cw <CR>
 " Gundo
 noremap <F5> :GundoToggle <CR>
 " Taglist
-nnoremap <silent> <F6> :TlistToggle<CR>
+nnoremap <silent> <F4> :TlistToggle<CR>
 
 " coffeescript
 function My_coffee()
@@ -42,7 +45,7 @@ function My_coffee()
 endfunction
 au BufNewFile,BufReadPost *.coffee call My_coffee()
 
-" use dedicated json highlighting in addition to javascript indenting rules
+" json: json highlighting + js indentation
 function My_json()
     set ft=javascript
     set ft=json

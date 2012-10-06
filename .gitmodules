@@ -31,3 +31,15 @@
 [submodule "vimfiles/bundle/vim-surround"]
 	path = vimfiles/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule "vimfiles/bundle/vim-indent-guides"]
+	path = vimfiles/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vimfiles/bundle/vim-matchit"]
+	path = vimfiles/bundle/vim-matchit
+	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "vimfiles/bundle/nerdcommenter"]
+	path = vimfiles/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vimfiles/bundle/html5.vim"]
+	path = vimfiles/bundle/html5.vim
+	url = git://github.com/othree/html5.vim.git
