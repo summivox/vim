@@ -20,13 +20,13 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " look 'n feel
-"set guifont=Inconsolata-dz_for_Powerline:h10
-set guifont=Consolas_for_Powerline_FixedD:h10
+set guifont=Consolas:h10
 "color wombat
 color pyte
 
 " Powerline
 set laststatus=2
+set guifont=Consolas_for_Powerline_FixedD:h10,Consolas:h10
 let g:Powerline_symbols = 'fancy'
 
 " default indentation
