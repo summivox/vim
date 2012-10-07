@@ -3,9 +3,41 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave xterm
 
-" invoke pathogen
+
+"" invoke pathogen
+"filetype plugin indent on
+"call pathogen#infect()
+
+" Bootstrap Vundle
+filetype off
+set rtp+=$VIM/vimfiles/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+" Packages
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Shougo/vim-shell'
+Bundle 'tpope/vim-fugitive'
+
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'sjl/gundo.vim'
+Bundle 'vim-scripts/taglist.vim'
+
+Bundle 'ervandew/supertab'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+
+Bundle 'scrooloose/syntastic'
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-scripts/JSON.vim'
+Bundle 'othree/html5.vim'
+Bundle 'vim-scripts/jade.vim'
+
+" Bootstrap Complete
 filetype plugin indent on
-call pathogen#infect()
+
 
 " backup/swap dir
 set nobackup
