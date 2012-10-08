@@ -23,7 +23,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'sjl/gundo.vim'
 Bundle 'vim-scripts/taglist.vim'
 
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
