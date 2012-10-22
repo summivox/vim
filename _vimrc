@@ -84,7 +84,7 @@ function My_coffee()
     hi link coffeeSemicolonError NONE
     hi link coffeeSpaceError NONE
     setl foldmethod=indent nofoldenable
-    setl shiftwidth=2 expandtab
+    setl shiftwidth=2 sts=2 expandtab
     noremap <F10> :CoffeeRun <CR>
     noremap <C-F10> :CoffeeCompile vert <CR>
     noremap <F8> :!node --debug-brk %<.js <CR>
