@@ -2,14 +2,19 @@ set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave xterm
-
+filetype off
 
 "" invoke pathogen
 "filetype plugin indent on
 "call pathogen#infect()
 
+" Non-vundle stuff
+
+" golang plugin
+set rtp+=$GOROOT/misc/vim
+
+
 " Bootstrap Vundle
-filetype off
 set rtp+=$VIM/vimfiles/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -23,7 +28,6 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'sjl/gundo.vim'
 Bundle 'vim-scripts/taglist.vim'
 
-Bundle 'ervandew/supertab'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
@@ -34,6 +38,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/jade.vim'
+Bundle 'tpope/vim-markdown'
 
 " Bootstrap Complete
 filetype plugin indent on
@@ -61,6 +66,10 @@ set laststatus=2
 set guifont=Consolas_for_Powerline_FixedD:h10,Consolas:h10
 let g:Powerline_symbols = 'fancy'
 
+" TOhtml
+let g:html_use_css=0
+let g:html_no_pre=1
+
 " default indentation
 set ai sw=4 sts=4 et nu fdc=1
 
@@ -75,6 +84,9 @@ noremap <F5> :GundoToggle <CR>
 nnoremap <silent> <F4> :TlistToggle<CR>
 " IndentGuide
 nmap <F3> <Leader>ig
+" TOhtml
+nnoremap <F12> :TOhtml <CR>
+vnoremap <F12> :TOhtml <CR>
 
 
 " Filetype
@@ -83,8 +95,8 @@ nmap <F3> <Leader>ig
 function My_coffee()
     hi link coffeeSemicolonError NONE
     hi link coffeeSpaceError NONE
-    setl foldmethod=indent nofoldenable
-    setl shiftwidth=2 expandtab
+    setl fdm=indent nofoldenable
+    setl sw=2 sts=2 expandtab
     noremap <F10> :CoffeeRun <CR>
     noremap <C-F10> :CoffeeCompile vert <CR>
     noremap <F8> :!node --debug-brk %<.js <CR>
