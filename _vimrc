@@ -110,3 +110,17 @@ function My_json()
     set ft=json
 endfunction
 au BufNewFile,BufRead *.json call My_json()
+
+" go
+function My_go()
+    noremap <F10> :w <CR> :!go run "%" <CR>
+endfunction
+au BufNewFile,BufRead *.go call My_go()
+
+" nex
+function My_nex()
+    unmap <C-F9>
+    noremap <C-F9> :w <CR> :!nex -s <"%" >"%.go" <CR>
+    noremap <C-S-F9> :w <CR> :!nex <"%" >"%.go" <CR>
+endfunction
+au BufNewFile,BufRead *.nex call My_nex()
