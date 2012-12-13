@@ -1,4 +1,4 @@
-set nocompatible
+set nocompatible tabpagemax=50
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave xterm
