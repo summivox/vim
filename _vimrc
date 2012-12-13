@@ -21,7 +21,7 @@ Bundle 'gmarik/vundle'
 
 " Packages
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/vim-shell'
+"Bundle 'Shougo/vim-shell'
 Bundle 'tpope/vim-fugitive'
 
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -102,6 +102,9 @@ function My_coffee()
     noremap <F10> :CoffeeRun <CR>
     noremap <C-F10> :CoffeeCompile vert <CR>
     noremap <F8> :!node --debug-brk %<.js <CR>
+    "workaround: unknown bug concerning "make"
+    unmap <C-F9>
+    noremap <C-F9> :w <CR> :!coffee -p "%" > "%<.js" <CR>
 endfunction
 au BufNewFile,BufReadPost *.coffee call My_coffee()
 
