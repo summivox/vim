@@ -52,6 +52,7 @@ set dir=$VIM\swap
 
 " encoding, language, UI
 set enc=utf8
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set langmenu=en_US.utf8
 let $LANG = 'en_US.utf8'
 set guioptions=gmlrt
@@ -75,8 +76,11 @@ let g:html_no_pre=1
 " default indentation
 set ai sw=4 sts=4 et nu fdc=1
 
+" completeopt: always popup
+set completeopt=menuone,preview
 
-" Hotkey Mapping
+
+" global maps
 
 " make
 noremap <C-F9> :w <CR> :make <CR> :cw <CR>
@@ -95,18 +99,15 @@ vnoremap <F12> :TOhtml <CR>
 
 " coffeescript
 function My_coffee()
-    hi link coffeeSemicolonError NONE
+    "hi link coffeeSemicolonError NONE
     hi link coffeeSpaceError NONE
     setl fdm=indent nofoldenable
     setl sw=2 sts=2 expandtab
-    noremap <F10> :CoffeeRun <CR>
-    noremap <C-F10> :CoffeeCompile vert <CR>
-    noremap <F8> :!node --debug-brk %<.js <CR>
-    "workaround: unknown bug concerning "make"
-    unmap <C-F9>
-    noremap <C-F9> :w <CR> :!coffee -p "%" > "%<.js" <CR>
+    nnoremap <buffer> <F10> :CoffeeRun <CR>
+    nnoremap <buffer> <C-F10> :CoffeeCompile vert <CR>
+    nnoremap <buffer> <F8> :!node --debug-brk %<.js <CR>
 endfunction
-au BufNewFile,BufReadPost *.coffee call My_coffee()
+au Filetype coffee call My_coffee()
 
 " json: json highlighting + js indentation
 function My_json()
@@ -116,15 +117,19 @@ endfunction
 au BufNewFile,BufRead *.json call My_json()
 
 " go
-function My_go()
-    noremap <F10> :w <CR> :!go run "%" <CR>
+function My_go_fmt()
+    !copy "%" "%.gofmt" && gofmt "%.gofmt" > "%" && rm "%.gofmt"
 endfunction
-au BufNewFile,BufRead *.go call My_go()
+function My_go()
+    setl sw=4 sts=4 ts=4 noet
+    nnoremap <buffer> <F10> :w <CR> :!go run "%" <CR>
+    nnoremap <buffer> <F12> :call My_go_fmt() <CR>
+endfunction
+au Filetype go call My_go()
 
 " nex
 function My_nex()
-    unmap <C-F9>
-    noremap <C-F9> :w <CR> :!nex -s <"%" >"%.go" <CR>
-    noremap <C-S-F9> :w <CR> :!nex <"%" >"%.go" <CR>
+    nnoremap <buffer> <C-F9> :w <CR> :!nex -s <"%" >"%.go" <CR>
+    nnoremap <buffer> <C-S-F9> :w <CR> :!nex <"%" >"%.go" <CR>
 endfunction
-au BufNewFile,BufRead *.nex call My_nex()
+au BufNewFile,BufReadPost *.nex call My_nex()
