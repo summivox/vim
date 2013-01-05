@@ -73,6 +73,9 @@ let g:Powerline_symbols = 'fancy'
 let g:html_use_css=0
 let g:html_no_pre=1
 
+" modeline (especially for iced-coffee-script generated js)
+set modelines=100
+
 " default indentation
 set ai sw=4 sts=4 et nu fdc=1
 
