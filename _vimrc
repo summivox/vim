@@ -153,3 +153,6 @@ endfunction
 au Filetype python call My_python()
 
 au BufNewFile,BufReadPost *.nex call My_nex()
+
+" arduino is just cpp
+au BufNewFile,BufReadPost *.ino setl ft=cpp
