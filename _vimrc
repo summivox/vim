@@ -156,3 +156,9 @@ au BufNewFile,BufReadPost *.nex call My_nex()
 
 " arduino is just cpp
 au BufNewFile,BufReadPost *.ino setl ft=cpp
+
+" markdown
+function My_markdown()
+    setl linebreak
+endfunction
+au Filetype markdown call My_markdown()
