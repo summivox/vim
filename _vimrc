@@ -162,3 +162,9 @@ function My_markdown()
     setl linebreak
 endfunction
 au Filetype markdown call My_markdown()
+
+" verilog
+function My_verilog()
+    setl sw=2 sts=2 et
+endfunction
+au Filetype verilog call My_verilog()
