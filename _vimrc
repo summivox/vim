@@ -166,5 +166,9 @@ au Filetype markdown call My_markdown()
 " verilog
 function My_verilog()
     setl sw=2 sts=2 et
+
+    " highlight macro invocations differently from constants
+    syn match verilogMacro "`[A-Z][A-Z0-9_]\+\>"
+    hi def link verilogMacro Macro
 endfunction
 au Filetype verilog call My_verilog()
