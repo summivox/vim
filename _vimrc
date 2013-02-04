@@ -168,7 +168,13 @@ function My_verilog()
     setl sw=2 sts=2 et
 
     " highlight macro invocations differently from constants
-    syn match verilogMacro "\v(`(define\s+)?)@<=[A-Z][A-Z0-9_]+>"
+    syn match verilogMacro "\v(`((define|ifdef)\s+)?)@<=[A-Z][A-Z0-9_]+>"
     hi def link verilogMacro Macro
 endfunction
 au Filetype verilog call My_verilog()
+
+" vhdl
+function My_vhdl()
+    setl sw=2 sts=2 et
+endfunction
+au Filetype vhdl call My_vhdl()
