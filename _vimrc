@@ -77,7 +77,7 @@ let g:html_no_pre=1
 set modelines=100
 
 " default indentation
-set ai sw=4 sts=4 et nu fdc=1
+set autoindent shiftwidth=4 softtabstop=4 expandtab number foldcolumn=1
 
 " completeopt: always popup
 set completeopt=menuone,preview
@@ -100,15 +100,23 @@ vnoremap <F12> :TOhtml <CR>
 
 " Filetype
 
+" javascript
+function My_javascript()
+    setl sw=2 sts=2 ts=2 et
+    nnoremap <buffer> <F10> :!node "%" <CR>
+    nnoremap <buffer> <F8> :!node --debug-brk "%" <CR>
+endfunction
+au Filetype javascript call My_javascript()
+
 " coffeescript
 function My_coffee()
     "hi link coffeeSemicolonError NONE
     hi link coffeeSpaceError NONE
     setl fdm=indent nofoldenable
-    setl sw=2 sts=2 expandtab
+    setl sw=2 sts=2 et
     nnoremap <buffer> <F10> :CoffeeRun <CR>
     nnoremap <buffer> <C-F10> :CoffeeCompile vert <CR>
-    nnoremap <buffer> <F8> :!node --debug-brk %<.js <CR>
+    nnoremap <buffer> <F8> :!node --debug-brk "%<.js" <CR>
 endfunction
 au Filetype coffee call My_coffee()
 function My_iced()
@@ -118,8 +126,6 @@ function My_iced()
     nnoremap <F9> :w <CR> :make -I inline <CR> :cw <CR>
 endfunction
 au Filetype iced call My_iced()
-
-
 
 " json: json highlighting + js indentation
 function My_json()
