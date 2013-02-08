@@ -96,6 +96,8 @@ nmap <F3> <Leader>ig
 " TOhtml
 nnoremap <F12> :TOhtml <CR>
 vnoremap <F12> :TOhtml <CR>
+" nohlsearch
+nnoremap <ESC><ESC> :noh <CR>
 
 
 " Filetype
