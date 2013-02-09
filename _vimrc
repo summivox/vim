@@ -119,11 +119,11 @@ vnoremap <leader>P "+P
 nnoremap Y y$
 
 " quick refactoring of keyword
-function My_refactor()
-    return ':%s/\<' . @" . '\>//g'
+function My_refactor(prefix)
+    return ':' . a:prefix . '%s/\<' . @" . '\>//g'
 endfunction
-nnoremap <special> <expr> <SID>R My_refactor()
-nmap <special> <leader>s yiw<SID>R<left><left>
+nnoremap <special> <expr> <SID>refactor My_refactor('')
+nmap <special> <leader>s yiw<SID>refactor<left><left>
 
 " delete trailing space in all lines
 nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
