@@ -110,6 +110,10 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
+vnoremap <leader>y "+y
+vnoremap <leader>Y "+Y
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 " Y is y$
 nnoremap Y y$
