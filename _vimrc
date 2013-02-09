@@ -1,4 +1,5 @@
 set nocompatible tabpagemax=50
+let mapleader=","
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave xterm
@@ -87,18 +88,41 @@ set completeopt=menuone,preview
 
 " make
 noremap <C-F9> :w <CR> :make <CR> :cw <CR>
+
 " Gundo
 noremap <F5> :GundoToggle <CR>
+
 " Taglist
 nnoremap <silent> <F4> :TlistToggle<CR>
+
 " IndentGuide
 nmap <F3> <Leader>ig
+
 " TOhtml
 nnoremap <F12> :TOhtml <CR>
 vnoremap <F12> :TOhtml <CR>
+
 " nohlsearch
 nnoremap <ESC><ESC> :noh <CR>
 
+" clipboard yank/put
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+
+" Y is y$
+nnoremap Y y$
+
+" quick refactoring of keyword
+function My_refactor()
+    return ':%s/\<' . @" . '\>//g'
+endfunction
+nnoremap <special> <expr> <SID>R My_refactor()
+nmap <special> <leader>s yiw<SID>R<left><left>
+
+" delete trailing space in all lines
+nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
 
 " Filetype
 
