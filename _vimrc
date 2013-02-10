@@ -118,12 +118,15 @@ vnoremap <leader>P "+P
 " Y is y$
 nnoremap Y y$
 
-" quick refactoring of keyword
-function My_refactor(prefix)
+" quick refactoring: replace keyword under cursor
+" `<leader>s`: main mapping
+" `<SID>R`: arbitrary local mapping
+" stores original position into `s before action
+function! My_refactor(prefix)
     return ':' . a:prefix . '%s/\<' . @" . '\>//g'
 endfunction
 nnoremap <special> <expr> <SID>refactor My_refactor('')
-nmap <special> <leader>s yiw<SID>refactor<left><left>
+nmap <special> <leader>s msyiw<SID>refactor<left><left>
 
 " delete trailing space in all lines
 nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
@@ -131,7 +134,7 @@ nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
 " Filetype
 
 " javascript
-function My_javascript()
+function! My_javascript()
     setl sw=2 sts=2 ts=2 et
     nnoremap <buffer> <F10> :!node "%" <CR>
     nnoremap <buffer> <F8> :!node --debug-brk "%" <CR>
@@ -139,7 +142,7 @@ endfunction
 au Filetype javascript call My_javascript()
 
 " coffeescript
-function My_coffee()
+function! My_coffee()
     "hi link coffeeSemicolonError NONE
     hi link coffeeSpaceError NONE
     setl fdm=indent nofoldenable
@@ -149,7 +152,7 @@ function My_coffee()
     nnoremap <buffer> <F8> :!node --debug-brk "%<.js" <CR>
 endfunction
 au Filetype coffee call My_coffee()
-function My_iced()
+function! My_iced()
     call My_coffee()
 
     " inline iced-coffee-script runtime
@@ -158,17 +161,17 @@ endfunction
 au Filetype iced call My_iced()
 
 " json: json highlighting + js indentation
-function My_json()
+function! My_json()
     set ft=javascript
     set ft=json
 endfunction
 au BufNewFile,BufRead *.json call My_json()
 
 " go
-function My_go_fmt()
+function! My_go_fmt()
     !copy "%" "%.gofmt" && gofmt "%.gofmt" > "%" && rm "%.gofmt"
 endfunction
-function My_go()
+function! My_go()
     setl sw=4 sts=4 ts=4 noet
     nnoremap <buffer> <F10> :w <CR> :!go run "%" <CR>
     nnoremap <buffer> <F12> :call My_go_fmt() <CR>
@@ -176,13 +179,13 @@ endfunction
 au Filetype go call My_go()
 
 " nex
-function My_nex()
+function! My_nex()
     nnoremap <buffer> <C-F9> :w <CR> :!nex -s <"%" >"%.go" <CR>
     nnoremap <buffer> <C-S-F9> :w <CR> :!nex <"%" >"%.go" <CR>
 endfunction
 
 " python
-function My_python()
+function! My_python()
     setl sw=4 sts=4 ts=4 noet
     nnoremap <buffer> <F10> :w <CR> :!python "%" <CR>
 endfunction
@@ -194,23 +197,24 @@ au BufNewFile,BufReadPost *.nex call My_nex()
 au BufNewFile,BufReadPost *.ino setl ft=cpp
 
 " markdown
-function My_markdown()
+function! My_markdown()
     setl linebreak
 endfunction
 au Filetype markdown call My_markdown()
 
 " verilog
-function My_verilog()
+function! My_verilog()
     setl sw=2 sts=2 et
 
     " highlight macro invocations differently from constants
-    syn match verilogMacro "\v(`((define|ifdef)\s+)?)@<=[A-Z][A-Z0-9_]+>"
+    syn match verilogMacro "\v(`((define|ifn?def)\s+)?)@<=[A-Z0-9_]+>"
     hi def link verilogMacro Macro
 endfunction
+au BufNewFile,BufReadPost *.vh setl ft=verilog
 au Filetype verilog call My_verilog()
 
 " vhdl
-function My_vhdl()
+function! My_vhdl()
     setl sw=2 sts=2 et
 endfunction
 au Filetype vhdl call My_vhdl()
