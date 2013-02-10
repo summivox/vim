@@ -118,17 +118,17 @@ vnoremap <leader>P "+P
 " Y is y$
 nnoremap Y y$
 
-" quick refactoring: replace keyword under cursor
+" quick ReFactoring: replace keyword under cursor
 " `<leader>s`: main mapping
 " `<SID>R`: arbitrary local mapping
 " stores original position into `s before action
-function! My_refactor(prefix)
-    return ':' . a:prefix . '%s/\<' . @" . '\>//g'
-endfunction
-nnoremap <special> <expr> <SID>refactor My_refactor('')
-nmap <special> <leader>s msyiw<SID>refactor<left><left>
+nnoremap <special> <expr> <SID>refactor ':%s/\<' . @" . '\>//g'
+nmap <special> <leader>rf msyiw<SID>refactor<left><left>
 
-" delete trailing space in all lines
+" convert last search expression into substitution
+nmap <expr> <leader>/ ':%s/' . @/
+
+" Delete Trailing space in all lines
 nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
 
 " Filetype
@@ -209,6 +209,9 @@ function! My_verilog()
     " highlight macro invocations differently from constants
     syn match verilogMacro "\v(`((define|ifn?def)\s+)?)@<=[A-Z0-9_]+>"
     hi def link verilogMacro Macro
+
+    " section delimiter comment block
+    nnoremap <buffer> <special> <leader>vc o<cr><cr><esc><up>12i/<esc>o
 endfunction
 au BufNewFile,BufReadPost *.vh setl ft=verilog
 au Filetype verilog call My_verilog()
