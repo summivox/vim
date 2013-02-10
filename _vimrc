@@ -118,15 +118,12 @@ vnoremap <leader>P "+P
 " Y is y$
 nnoremap Y y$
 
-" quick ReFactoring: replace keyword under cursor
-" `<leader>s`: main mapping
-" `<SID>R`: arbitrary local mapping
-" stores original position into `s before action
-nnoremap <special> <expr> <SID>refactor ':%s/\<' . @" . '\>//g'
-nmap <special> <leader>rf msyiw<SID>refactor<left><left>
-
 " convert last search expression into substitution
 nmap <expr> <leader>/ ':%s/' . @/
+
+" quick ReFactoring: replace keyword under cursor
+nnoremap <special> <expr> <SID>refactor ':%s/\<' . @" . '\>//g'
+nmap <special> <leader>rf msyiw<SID>refactor<left><left>
 
 " Delete Trailing space in all lines
 nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
