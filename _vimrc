@@ -119,11 +119,10 @@ vnoremap <leader>P "+P
 nnoremap Y y$
 
 " convert last search expression into substitution
-nmap <expr> <leader>/ ':%s/' . @/
+nmap <expr> <leader>/ ':%s/' . @/ . '/'
 
 " quick ReFactoring: replace keyword under cursor
-nnoremap <special> <expr> <SID>refactor ':%s/\<' . @" . '\>//g'
-nmap <special> <leader>rf msyiw<SID>refactor<left><left>
+nmap <special> <leader>rf ms"+yiw:%s/\<<c-v>\>//g<left><left>
 
 " Delete Trailing space in all lines
 nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
