@@ -5,16 +5,15 @@ source $VIMRUNTIME/mswin.vim
 behave xterm
 filetype off
 
-"" invoke pathogen
-"filetype plugin indent on
-"call pathogen#infect()
 
-" Non-vundle stuff
+""""""""""""""""""""""""""""""""""""""""
+" Bundle Manager / Runtime-Path-Based
 
 " golang plugin
 set rtp+=$GOROOT/misc/vim
 
-
+" powerline
+"set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
 " Bootstrap Vundle
 set rtp+=$VIM/vimfiles/bundle/vundle
 call vundle#rc()
@@ -22,10 +21,12 @@ Bundle 'gmarik/vundle'
 
 " Packages
 Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/powerline'
 "Bundle 'Shougo/vim-shell'
 Bundle 'tpope/vim-fugitive'
 
 Bundle 'nathanaelkane/vim-indent-guides'
+"Bundle 'Yggdroot/indentLine'
 Bundle 'sjl/gundo.vim'
 Bundle 'vim-scripts/taglist.vim'
 
@@ -47,6 +48,9 @@ Bundle 'tpope/vim-markdown'
 filetype plugin indent on
 
 
+""""""""""""""""""""""""""""""""""""""""
+" generic stuff
+
 " backup/swap dir
 set nobackup
 set dir=$VIM\swap
@@ -62,8 +66,17 @@ source $VIMRUNTIME/menu.vim
 
 " look 'n feel
 set guifont=Consolas:h10
-"color wombat
 color pyte
+
+" modeline: help with generated code
+set modelines=100
+
+" default indentation
+set autoindent shiftwidth=4 softtabstop=4 expandtab number foldcolumn=1
+
+
+""""""""""""""""""""""""""""""""""""""""
+" plugin settings
 
 " Powerline
 set laststatus=2
@@ -73,12 +86,6 @@ let g:Powerline_symbols = 'fancy'
 " TOhtml
 let g:html_use_css=0
 let g:html_no_pre=1
-
-" modeline (especially for iced-coffee-script generated js)
-set modelines=100
-
-" default indentation
-set autoindent shiftwidth=4 softtabstop=4 expandtab number foldcolumn=1
 
 " completeopt: always popup
 set completeopt=menuone,preview
@@ -95,8 +102,10 @@ noremap <F5> :GundoToggle <CR>
 " Taglist
 nnoremap <silent> <F4> :TlistToggle<CR>
 
-" IndentGuide
+" indent guide
 nmap <F3> <Leader>ig
+"nmap <F3> :IndentLinesToggle<CR>
+"let g:indentLine_char="┆"
 
 " TOhtml
 nnoremap <F12> :TOhtml <CR>
@@ -105,29 +114,42 @@ vnoremap <F12> :TOhtml <CR>
 " nohlsearch
 nnoremap <ESC><ESC> :noh <CR>
 
-" clipboard yank/put
-nnoremap <leader>y "+y
-nnoremap <leader>Y "+Y
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>y "+y
-vnoremap <leader>Y "+Y
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+" increase/decrease remapping (<C-A> mapped to visual all)
+nnoremap <c-s-A> <c-a>
+nnoremap <c-s-X> <c-x>
+nnoremap <c-a> ggVG
 
 " Y is y$
 nnoremap Y y$
+
+" clipboard yank/put
+nmap <leader>y "+y
+nmap <leader>Y "+Y
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>y "+y
+vmap <leader>Y "+Y
+vmap <leader>p "+p
+vmap <leader>P "+P
 
 " convert last search expression into substitution
 nmap <expr> <leader>/ ':%s/' . @/ . '/'
 
 " quick ReFactoring: replace keyword under cursor
-nmap <special> <leader>rf ms"+yiw:%s/\<<c-v>\>//g<left><left>
+nmap <special> <leader>rf "+yiw:%s/\<<c-v>\>//g<left><left>
+vmap <special> <leader>rf "+y:%s/<c-v>//g<left><left>
 
 " Delete Trailing space in all lines
 nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
 
-" Filetype
+" Quick diff on/off
+nnoremap <leader>wt :windo difft<cr>
+nnoremap <leader>wo :windo diffo<cr>
+nnoremap <leader>vds :vert diffsplit<space>
+
+
+""""""""""""""""""""""""""""""""""""""""
+" Filetype Customization
 
 " javascript
 function! My_javascript()
@@ -203,11 +225,14 @@ function! My_verilog()
     setl sw=2 sts=2 et
 
     " highlight macro invocations differently from constants
-    syn match verilogMacro "\v(`((define|ifn?def)\s+)?)@<=[A-Z0-9_]+>"
+    syn match verilogMacro "\v(`((define|ifn?def|undef)\s+)?)@<=[A-Z0-9_]+>"
     hi def link verilogMacro Macro
 
     " section delimiter comment block
     nnoremap <buffer> <special> <leader>vc o<cr><cr><esc><up>12i/<esc>o
+
+    " TODO: make a wire/reg/... bus
+    " noremap <buffer> <special> <leader>vw ^/\\<wire\\|reg\\|input\\|output\\|inout\\|tri(\\d\\|and\\|or\\|reg\\|)\\>/<cr>ta<space>[-1:0]<esc>hhhhi
 endfunction
 au BufNewFile,BufReadPost *.vh setl ft=verilog
 au Filetype verilog call My_verilog()
