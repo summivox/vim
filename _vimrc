@@ -114,10 +114,10 @@ vnoremap <F12> :TOhtml <CR>
 " nohlsearch
 nnoremap <ESC><ESC> :noh <CR>
 
-" increase/decrease remapping (<C-A> mapped to visual all)
-nnoremap <c-s-A> <c-a>
-nnoremap <c-s-X> <c-x>
-nnoremap <c-a> ggVG
+" compromise: ct
+nnoremap <c-A> ggVG
+nnoremap <a-a> <c-a>
+nnoremap <a-x> <c-x>
 
 " Y is y$
 nnoremap Y y$
