@@ -72,7 +72,7 @@ color pyte
 set modelines=100
 
 " default indentation
-set autoindent shiftwidth=4 softtabstop=4 expandtab number foldcolumn=1
+set autoindent shiftwidth=4 softtabstop=4 tabstop=4 expandtab number foldcolumn=1
 
 
 """"""""""""""""""""""""""""""""""""""""
