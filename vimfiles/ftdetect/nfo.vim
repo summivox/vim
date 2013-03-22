@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.nfo set filetype=nfo
+au BufNewFile,BufRead *.nfo setl filetype=nfo
