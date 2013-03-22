@@ -33,6 +33,7 @@ Bundle 'vim-scripts/taglist.vim'
 "Bundle 'ervandew/supertab'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
+Bundle 'yueyoum/vim-linemovement'
 Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'scrooloose/syntastic'
@@ -246,6 +247,7 @@ au Filetype vhdl call My_vhdl()
 " pawn
 function! My_pawn()
     setl sw=4 sts=4 ts=4 et
+    setl cin
     let &mp="pawncc -O3 \"%\" "
 endfunction
 au BufNewFile,BufReadPost *.p setl ft=pawn
