@@ -242,3 +242,11 @@ function! My_vhdl()
     setl sw=2 sts=2 et
 endfunction
 au Filetype vhdl call My_vhdl()
+
+" pawn
+function! My_pawn()
+    setl sw=4 sts=4 ts=4 et
+    let &mp="pawncc -O3 \"%\" "
+endfunction
+au BufNewFile,BufReadPost *.p setl ft=pawn
+au Filetype pawn call My_pawn()
