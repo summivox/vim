@@ -251,7 +251,8 @@ function! My_pawn()
     setl cin
     let &mp="pawncc -O3 \"%\" "
 endfunction
-au BufNewFile,BufReadPost *.p setl ft=pawn
-au BufNewFile,BufReadPost *.inc setl ft=pawn
+au BufNewFile,BufReadPost *.p setl ft=sourcepawn
+au BufNewFile,BufReadPost *.inc setl ft=sourcepawn
 
 au Filetype pawn call My_pawn()
+au Filetype sourcepawn call My_pawn()
