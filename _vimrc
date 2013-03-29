@@ -96,7 +96,7 @@ set completeopt=menuone,preview
 " global maps
 
 " make
-noremap <C-F9> :w <CR> :make <CR> :cw <CR>
+noremap <C-F9> :w <CR>:make <CR>:cw <CR>
 
 " Gundo
 noremap <F5> :GundoToggle <CR>
@@ -176,7 +176,7 @@ function! My_iced()
     call My_coffee()
 
     " inline iced-coffee-script runtime
-    nnoremap <F9> :w <CR> :make -I inline <CR> :cw <CR>
+    nnoremap <F9> :w <CR>:make -I inline <CR>:cw <CR>
 endfunction
 au Filetype iced call My_iced()
 
@@ -193,21 +193,21 @@ function! My_go_fmt()
 endfunction
 function! My_go()
     setl sw=4 sts=4 ts=4 noet
-    nnoremap <buffer> <F10> :w <CR> :!go run "%" <CR>
+    nnoremap <buffer> <F10> :w <CR>:!go run "%" <CR>
     nnoremap <buffer> <F12> :call My_go_fmt() <CR>
 endfunction
 au Filetype go call My_go()
 
 " nex
 function! My_nex()
-    nnoremap <buffer> <C-F9> :w <CR> :!nex -s <"%" >"%.go" <CR>
-    nnoremap <buffer> <C-S-F9> :w <CR> :!nex <"%" >"%.go" <CR>
+    nnoremap <buffer> <C-F9> :w <CR>:!nex -s <"%" >"%.go" <CR>
+    nnoremap <buffer> <C-S-F9> :w <CR>:!nex <"%" >"%.go" <CR>
 endfunction
 
 " python
 function! My_python()
     setl sw=4 sts=4 ts=4 noet
-    nnoremap <buffer> <F10> :w <CR> :!python "%" <CR>
+    nnoremap <buffer> <F10> :w <CR>:!python "%" <CR>
 endfunction
 au Filetype python call My_python()
 
@@ -250,6 +250,7 @@ function! My_pawn()
     setl sw=4 sts=4 ts=4 et
     setl cin
     let &mp="pawncc -O3 \"%\" "
+    map <buffer> <F10> :!pawnrun "%<.amx" <CR>
 endfunction
 au BufNewFile,BufReadPost *.p setl ft=sourcepawn
 au BufNewFile,BufReadPost *.inc setl ft=sourcepawn
