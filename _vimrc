@@ -45,6 +45,8 @@ Bundle 'othree/html5.vim'
 Bundle 'vim-scripts/jade.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'smilekzs/vim-pawn'
+Bundle 'lukerandall/haskellmode-vim'
+Bundle 'wlangstroth/vim-racket'
 
 " Bootstrap Complete
 filetype plugin indent on
