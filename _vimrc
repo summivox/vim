@@ -190,13 +190,10 @@ endfunction
 au BufNewFile,BufRead *.json call My_json()
 
 " go
-function! My_go_fmt()
-    !copy "%" "%.gofmt" && gofmt "%.gofmt" > "%" && rm "%.gofmt"
-endfunction
 function! My_go()
     setl sw=4 sts=4 ts=4 noet
     nnoremap <buffer> <F10> :w <CR>:!go run "%" <CR>
-    nnoremap <buffer> <F12> :call My_go_fmt() <CR>
+    nnoremap <buffer> <F11> :%!gofmt <CR>
 endfunction
 au Filetype go call My_go()
 
