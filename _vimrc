@@ -190,9 +190,22 @@ endfunction
 au BufNewFile,BufRead *.json call My_json()
 
 " go
+function! Lastdir(path)
+    let l:i1 = strridx(a:path, "/")
+    let l:i2 = strridx(a:path, "\\")
+    let l:i = (l:i1!=-1)?(l:i1):(l:i2)
+    return strpart(a:path, l:i+1)
+endfunction
+function! GoDebug()
+    let l:fn = Lastdir(getcwd()) . ".exe"
+    let l:cmd = "!start gdb \"" . fn . "\""
+    exec l:cmd
+endfunction
 function! My_go()
     setl sw=4 sts=4 ts=4 noet
-    nnoremap <buffer> <F10> :w <CR>:!go run "%" <CR>
+    nnoremap <buffer> <C-F9> :w<CR>:!go build .<CR>:cw<CR>
+    nnoremap <buffer> <F10> :w<CR>:!go run "%" <CR>
+    nnoremap <buffer> <F8> :call GoDebug()<CR>
     nnoremap <buffer> <F11> :%!gofmt <CR>
 endfunction
 au Filetype go call My_go()
