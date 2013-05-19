@@ -158,7 +158,7 @@ nnoremap <leader>vds :vert diffsplit<space>
 " javascript
 function! My_javascript()
     setl sw=2 sts=2 ts=2 et
-    nnoremap <buffer> <F10> :!start node "%" <CR>
+    nnoremap <buffer> <F10> :!node "%" <CR>
     nnoremap <buffer> <F8> :!start node --debug-brk "%" <CR>
 endfunction
 au Filetype javascript call My_javascript()
@@ -204,8 +204,7 @@ endfunction
 function! My_go()
     setl sw=4 sts=4 ts=4 noet
     let &mp="go build . "
-    " nnoremap <buffer> <C-F9> :w<CR>:!start go build .<CR>:cw<CR>
-    nnoremap <buffer> <F10> :w<CR>:!start go run "%" <CR>
+    nnoremap <buffer> <F10> :w<CR>:!go run "%" <CR>
     nnoremap <buffer> <F8> :call GoDebug()<CR>
     nnoremap <buffer> <F11> m`:%!gofmt<CR>``
 endfunction
