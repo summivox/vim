@@ -198,12 +198,12 @@ function! Lastdir(path)
 endfunction
 function! GoDebug()
     let l:fn = Lastdir(getcwd()) . ".exe"
-    let l:cmd = "!start gdb \"" . fn . "\""
+    let l:cmd = "!start gdb64 \"" . fn . "\""
     exec l:cmd
 endfunction
 function! My_go()
     setl sw=4 sts=4 ts=4 noet
-    let &mp="go build . "
+    let &mp="go build -gcflags \"-N -l\" . "
     nnoremap <buffer> <F10> :w<CR>:!go run "%" <CR>
     nnoremap <buffer> <F8> :call GoDebug()<CR>
     nnoremap <buffer> <F11> m`:%!gofmt<CR>``
