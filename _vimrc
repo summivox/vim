@@ -231,6 +231,7 @@ au BufNewFile,BufReadPost *.ino setl ft=cpp
 " markdown
 function! My_markdown()
     setl linebreak
+    nnoremap <buffer> <leader><cr> gqap
 endfunction
 au Filetype markdown call My_markdown()
 
