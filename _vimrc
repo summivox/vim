@@ -95,6 +95,7 @@ let g:html_no_pre=1
 set completeopt=menuone,preview
 
 
+""""""""""""""""""""""""""""""""""""""""
 " global maps
 
 " make
@@ -151,9 +152,17 @@ nnoremap <leader>wt :windo difft<cr>
 nnoremap <leader>wo :windo diffo<cr>
 nnoremap <leader>vds :vert diffsplit<space>
 
+" section delimiter comment
+nnoremap <buffer> <special> <leader>c/ o<cr><cr><esc><up>12i/<esc>o
+
 
 """"""""""""""""""""""""""""""""""""""""
 " Filetype Customization
+
+function! My_cpp()
+    setl sw=4 sts=4 ts=4 et
+endfunction
+au Filetype cpp call My_cpp()
 
 " javascript
 function! My_javascript()
@@ -242,9 +251,6 @@ function! My_verilog()
     " highlight macro invocations differently from constants
     syn match verilogMacro "\v(`((define|ifn?def|undef)\s+)?)@<=[A-Z0-9_]+>"
     hi def link verilogMacro Macro
-
-    " section delimiter comment block
-    nnoremap <buffer> <special> <leader>vc o<cr><cr><esc><up>12i/<esc>o
 
     " TODO: make a wire/reg/... bus
     " noremap <buffer> <special> <leader>vw ^/\\<wire\\|reg\\|input\\|output\\|inout\\|tri(\\d\\|and\\|or\\|reg\\|)\\>/<cr>ta<space>[-1:0]<esc>hhhhi
