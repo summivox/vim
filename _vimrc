@@ -153,7 +153,7 @@ nnoremap <leader>wo :windo diffo<cr>
 nnoremap <leader>vds :vert diffsplit<space>
 
 " section delimiter comment
-nnoremap <buffer> <special> <leader>c/ o<cr><cr><esc><up>12i/<esc>o
+nnoremap <special> <leader>c/ o<cr><cr><esc><up>12i/<esc>o
 
 
 """"""""""""""""""""""""""""""""""""""""
