@@ -159,8 +159,24 @@ nnoremap <buffer> <special> <leader>c/ o<cr><cr><esc><up>12i/<esc>o
 """"""""""""""""""""""""""""""""""""""""
 " Filetype Customization
 
+" cpp
+
+" auto header guard
+function! My_cpp_hg_name()
+    let @" = "_" . toupper(substitute(expand('%:t'), "\\.", "_", "g")) . "_"
+endfunction
+function! My_cpp_hg()
+    call My_cpp_hg_name()
+    normal ggO#ifndef 
+    normal po#define 
+    normal pGo#endif//
+    normal pgg
+endfunction
+
 function! My_cpp()
     setl sw=4 sts=4 ts=4 et
+
+    nnoremap <buffer> <special> <leader>hg :call My_cpp_hg()<cr>
 endfunction
 au Filetype cpp call My_cpp()
 
