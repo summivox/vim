@@ -1,5 +1,5 @@
+let mapleader = ","
 set nocompatible tabpagemax=50
-let mapleader=","
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave xterm
@@ -29,6 +29,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'Yggdroot/indentLine'
 Bundle 'sjl/gundo.vim'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'myusuf3/numbers.vim'
 
 "Bundle 'ervandew/supertab'
 Bundle 'tsaleh/vim-matchit'
@@ -98,6 +99,9 @@ set completeopt=menuone,preview
 
 """"""""""""""""""""""""""""""""""""""""
 " global maps
+
+" from 吴育昕 (http://www.renren.com/g/370311990)
+nnoremap ; :
 
 " make
 noremap <C-F9> :w <CR>:make <CR>:cw <CR>
@@ -257,6 +261,7 @@ au BufNewFile,BufReadPost *.ino setl ft=cpp
 " markdown
 function! My_markdown()
     setl linebreak
+    let &mp="marked \"%\" -o \"%<.html\" "
     nnoremap <buffer> <leader><cr> gqap
 endfunction
 au Filetype markdown call My_markdown()
