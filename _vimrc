@@ -117,6 +117,9 @@ nmap <F3> <Leader>ig
 "nmap <F3> :IndentLinesToggle<CR>
 "let g:indentLine_char="┆"
 
+" Number
+nnoremap <F6> :NumbersToggle<CR>
+
 " TOhtml
 nnoremap <F12> :TOhtml <CR>
 vnoremap <F12> :TOhtml <CR>
