@@ -67,6 +67,7 @@ set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set langmenu=en_US.utf8
 let $LANG = 'en_US.utf8'
 set guioptions=gmlrt
+set wildmenu
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
