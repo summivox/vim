@@ -181,10 +181,22 @@ function! My_cpp_hg()
     normal pgg
 endfunction
 
+" switch cpp<=>hpp
+function! My_cpp_switch()
+    let l:ext = expand('%:e')
+    if l:ext == "cpp"
+        vs %<.hpp
+    elseif l:ext == "hpp"
+        vs %<.cpp
+    endif
+    redraw
+endfunction
+
 function! My_cpp()
     setl sw=4 sts=4 ts=4 et
 
     nnoremap <buffer> <special> <leader>hg :call My_cpp_hg()<cr>
+    nnoremap <buffer> <C-S-Tab> :call My_cpp_switch()<cr>
 endfunction
 au Filetype cpp call My_cpp()
 
