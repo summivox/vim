@@ -224,7 +224,7 @@ function! My_iced()
     call My_coffee()
 
     " inline iced-coffee-script runtime
-    nnoremap <F9> :w <CR>:make -I inline <CR>:cw <CR>
+    nnoremap <buffer> <F9> :w <CR>:make -I inline <CR>:cw <CR>
 endfunction
 au Filetype iced call My_iced()
 
