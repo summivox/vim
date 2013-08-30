@@ -33,6 +33,7 @@ Bundle 'myusuf3/numbers.vim'
 
 "Bundle 'ervandew/supertab'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'austintaylor/vim-indentobject'
 Bundle 'tpope/vim-surround'
 Bundle 'yueyoum/vim-linemovement'
 Bundle 'scrooloose/nerdcommenter'
@@ -68,6 +69,7 @@ set langmenu=en_US.utf8
 let $LANG = 'en_US.utf8'
 set guioptions=gmlrt
 set wildmenu
+set wildmode=longest,list,full
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
@@ -149,12 +151,12 @@ vmap <leader>P "+P
 " convert last search expression into substitution
 nmap <expr> <leader>/ ':%s/' . @/ . '/'
 
-" quick ReFactoring: replace keyword under cursor
-nmap <special> <leader>rf "+yiw:%s/\<<c-v>\>//g<left><left>
-vmap <special> <leader>rf "+y:%s/<c-v>//g<left><left>
+" replace keyword under cursor
+nmap <special> <leader>s "+yiw:%s/\<<c-v>\>//g<left><left>
+vmap <special> <leader>s "+y:%s/<c-v>//g<left><left>
 
 " Delete Trailing space in all lines
-nnoremap <silent> <leader>dt :%s/\s\+$/<CR>:noh<CR>
+nnoremap <silent> <leader><space> :%s/\s\+$/<CR>:noh<CR>
 
 " Quick diff on/off
 nnoremap <leader>wt :windo difft<cr>
