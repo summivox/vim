@@ -233,10 +233,16 @@ au Filetype iced call My_iced()
 
 " json: json highlighting + js indentation
 function! My_json()
-    set ft=javascript
-    set ft=json
+    setl ft=javascript
+    setl ft=json
 endfunction
 au BufNewFile,BufRead *.json call My_json()
+
+" jade
+function! My_jade()
+    setl sw=2 sts=2 et
+endfunction
+au Filetype jade call My_jade()
 
 " go
 function! Lastdir(path)
