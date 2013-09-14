@@ -104,7 +104,7 @@ set completeopt=menuone,preview
 """"""""""""""""""""""""""""""""""""""""
 " global maps
 
-" from 吴育昕 (http://www.renren.com/g/370311990)
+" from 吴育昕 (http://ppwwyyxx.com)
 nnoremap ; :
 
 " make
