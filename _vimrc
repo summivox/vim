@@ -51,6 +51,7 @@ Bundle 'smilekzs/vim-pawn'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'smilekzs/vim-nfo'
 
 " Bootstrap Complete
 filetype plugin indent on
