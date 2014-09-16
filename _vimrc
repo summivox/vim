@@ -38,7 +38,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'yueyoum/vim-linemovement'
 Bundle 'scrooloose/nerdcommenter'
 
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'pangloss/vim-javascript'
 "Bundle 'kchmck/vim-coffee-script'
 Bundle 'smilekzs/vim-coffee-script'
