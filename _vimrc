@@ -24,6 +24,7 @@ Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'Shougo/vim-shell'
 Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
 
 Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'Yggdroot/indentLine'
