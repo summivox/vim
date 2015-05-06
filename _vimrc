@@ -49,6 +49,8 @@ Bundle 'othree/html5.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'tpope/vim-markdown'
 Bundle 'summivox/vim-pawn'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-lua-ftplugin'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'hail2u/vim-css3-syntax'
@@ -63,7 +65,7 @@ filetype plugin indent on
 
 " backup/swap dir
 set nobackup
-set dir=$VIM\swap
+set dir=$VIM/swap
 
 " encoding, language, UI
 set enc=utf8
