@@ -30,7 +30,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'Yggdroot/indentLine'
 Bundle 'sjl/gundo.vim'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'myusuf3/numbers.vim'
+"Bundle 'myusuf3/numbers.vim'
 
 "Bundle 'ervandew/supertab'
 Bundle 'tsaleh/vim-matchit'
