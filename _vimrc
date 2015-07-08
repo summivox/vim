@@ -43,6 +43,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'pangloss/vim-javascript'
 "Bundle 'kchmck/vim-coffee-script'
 Bundle 'summivox/vim-coffee-script'
+Bundle 'gkz/vim-ls'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'othree/html5.vim'
 "Bundle 'vim-scripts/jade.vim'
@@ -224,9 +225,9 @@ function! My_coffee()
     setl sw=2 sts=2 et
     nnoremap <buffer> <F10> :CoffeeRun <CR>
     nnoremap <buffer> <C-F10> :CoffeeCompile vert <CR>
-    nnoremap <buffer> <F8> :!start node --debug-brk "%<.js" <CR>
 endfunction
 au Filetype coffee call My_coffee()
+au BufNewFile,BufRead *.cson set ft=coffee
 function! My_iced()
     call My_coffee()
 
@@ -234,6 +235,16 @@ function! My_iced()
     nnoremap <buffer> <F9> :w <CR>:make -I inline <CR>:cw <CR>
 endfunction
 au Filetype iced call My_iced()
+
+" livescript
+function! My_ls()
+    " setl fdm=indent nofoldenable
+    hi link lsSpaceError NONE
+    setl sw=2 sts=2 et
+    nnoremap <buffer> <F10> :LiveScriptRun <CR>
+    nnoremap <buffer> <C-F10> :LiveScriptCompile vert <CR>
+endfunction
+au Filetype ls call My_ls()
 
 " json: json highlighting + js indentation
 function! My_json()
