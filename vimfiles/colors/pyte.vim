@@ -45,7 +45,7 @@ hi Folded    guifg=#a0a0a0 guibg=#e8e8e8 gui=italic
 
 hi NonText   guifg=#c0c0c0 guibg=#e0e0e0
 " Kommentare
-hi Comment   guifg=#a0b0c0               gui=italic
+hi Comment   guifg=#a0b0c0
 
 " Konstanten
 hi Constant  guifg=#a07040
