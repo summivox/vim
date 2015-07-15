@@ -48,6 +48,7 @@ Bundle 'vim-scripts/JSON.vim'
 Bundle 'othree/html5.vim'
 "Bundle 'vim-scripts/jade.vim'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'summivox/vim-pawn'
 Bundle 'xolox/vim-misc'
@@ -88,6 +89,9 @@ set modelines=100
 
 " default indentation
 set autoindent shiftwidth=4 softtabstop=4 tabstop=4 expandtab number foldcolumn=1
+
+" window control
+set noequalalways
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -241,6 +245,8 @@ function! My_ls()
     " setl fdm=indent nofoldenable
     hi link lsSpaceError NONE
     setl sw=2 sts=2 et
+    " let livescript_make_options = '--map linked'
+    let livescript_compile_vert = 1
     nnoremap <buffer> <F10> :LiveScriptRun <CR>
     nnoremap <buffer> <C-F10> :LiveScriptCompile vert <CR>
 endfunction
