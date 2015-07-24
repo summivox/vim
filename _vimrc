@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = " "
 set nocompatible tabpagemax=50
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -92,6 +92,9 @@ set autoindent shiftwidth=4 softtabstop=4 tabstop=4 expandtab number foldcolumn=
 
 " window control
 set noequalalways
+
+" scroll control
+set scrolloff=7
 
 
 """"""""""""""""""""""""""""""""""""""""
